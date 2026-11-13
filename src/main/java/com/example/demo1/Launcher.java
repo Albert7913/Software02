@@ -70,7 +70,7 @@ public class Launcher extends Application {
         List<String> SupervisorProjektNames = SupervisorNames();
         SupervisorProjektopretelseComboBox.getItems().addAll(SupervisorProjektNames);
 
-        // her for en knap der loader alle gruppe dannelser der er oprettet.
+        // her for en knap der loader alle gruppe dannelser der er oprettet. AI generet
         Button createGroupButton = new Button("Create group");
         createGroupButton.setOnAction(event -> {
             gruppeoprettelse(
@@ -82,11 +82,26 @@ public class Launcher extends Application {
         });
 
 
+        // tilknyt grupper
+        TextField StudentTilknyt = new TextField("Navn");
+        ComboBox<String> StudentComboBoxTilknyt = new ComboBox<>();
+        studentNamesForProjektOprettelse = studentNames();
+        StudentComboBoxTilknyt.getItems().addAll(studentNamesForProjektOprettelse);
+
+        TextField Activityfortilknyt= new TextField("Activity");
+        ComboBox<String> ActivityAfProjektetTilknyt = new ComboBox<>();
+        List<String> activityNamesForProjektTilknyt = ActivityNames();
+        ActivityAfProjektetTilknyt.getItems().addAll(activityNamesForProjektTilknyt);
+
+
+
+
+
 
         VBox Student = new VBox(studentNameField, StudentComboBox, activityNameField, ActivityComboBox, groupNameField,
-                Visgruppe, Gruppeoprettelse, TitleforNytprojekt, Activity, ActivityAfProjektet,
-                StudentForProjektOprettelse, StudentComboBoxForProjektOprettelse, Supervisor,
-                SupervisorProjektopretelseComboBox, createGroupButton);
+                Visgruppe, Gruppeoprettelse, TitleforNytprojekt,
+                StudentForProjektOprettelse, Supervisor,
+                SupervisorProjektopretelseComboBox, createGroupButton, StudentTilknyt ,StudentComboBoxTilknyt, Activityfortilknyt,ActivityAfProjektetTilknyt);
         stage.setTitle("Gruppe dannelse");
         stage.setScene(new Scene(Student, 1200, 1200));
         stage.show();
@@ -150,7 +165,7 @@ public class Launcher extends Application {
         if (studentName == null || activityName == null) {
             return;
         }
-
+        // AI generet
         String url = "jdbc:sqlite:softwaredeleopment.sqlite";
         List<String> groupNames = new ArrayList<>();
         String sql = "SELECT pg.title " +
@@ -202,6 +217,7 @@ public class Launcher extends Application {
     }
 
 
+    //AI generet
     public void gruppeoprettelse(String studentName, String supervisorName, String title, String activityName) {
         if (studentName == null || supervisorName == null || activityName == null
                 || title == null || title.trim().isEmpty()) {
@@ -283,6 +299,8 @@ public class Launcher extends Application {
 
 
     public void Tilknytgruppe() {
+
+
 
 
 

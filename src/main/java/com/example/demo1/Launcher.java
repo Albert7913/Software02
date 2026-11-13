@@ -100,7 +100,7 @@ public class Launcher extends Application {
 
         VBox Student = new VBox(studentNameField, StudentComboBox, activityNameField, ActivityComboBox, groupNameField,
                 Visgruppe, Gruppeoprettelse, TitleforNytprojekt,
-                StudentForProjektOprettelse, Supervisor,
+                StudentForProjektOprettelse,StudentComboBoxForProjektOprettelse, Supervisor,
                 SupervisorProjektopretelseComboBox, createGroupButton, StudentTilknyt ,StudentComboBoxTilknyt, Activityfortilknyt,ActivityAfProjektetTilknyt);
         stage.setTitle("Gruppe dannelse");
         stage.setScene(new Scene(Student, 1200, 1200));
